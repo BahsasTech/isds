@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Sign in &middot; LSDS</title>
+  <meta name="description" content="Sign in to the Learning and Staff Development System.">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+  <div class="auth">
+    <!-- Brand panel -->
+    <section class="auth-brand" aria-hidden="true">
+      <div class="auth-logo">
+        <span class="mark">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+            <path d="M12 3 2 8l10 5 8-4v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V15c0 1.66 2.69 3 6 3s6-1.34 6-3v-4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="name">Learning &amp; Staff Development<small>Corporate Services</small></span>
+      </div>
+
+      <div class="auth-hero">
+        <h1>Grow capability.<br>Share knowledge.<br>Deliver results.</h1>
+        <p>One platform for training approvals, knowledge sharing, e-learning, meetings and technical support across the organisation.</p>
+        <ul class="auth-features">
+          <li><span class="tick">&#10003;</span><span>Structured multi-stage approval workflow from department to finance</span></li>
+          <li><span class="tick">&#10003;</span><span>Central knowledge repository of documents, videos and sessions</span></li>
+          <li><span class="tick">&#10003;</span><span>Transparent financial authorisation and disbursement tracking</span></li>
+          <li><span class="tick">&#10003;</span><span>Full audit trail of every action and decision</span></li>
+        </ul>
+      </div>
+
+      <div class="auth-foot">
+        &copy; <span id="year"></span> Learning and Staff Development System &middot; v1.0
+      </div>
+    </section>
+
+    <!-- Form panel -->
+    <section class="auth-panel">
+      <div>
+        <form class="auth-form" id="login-form" novalidate>
+          <div class="eyebrow">Welcome back</div>
+          <h2>Sign in to LSDS</h2>
+          <p class="lead">Use your organisational email address and password.</p>
+
+          <div class="form-error hidden" id="login-error" role="alert"></div>
+
+          <div class="field">
+            <label class="label" for="email">Email address</label>
+            <div class="input-group">
+              <span class="input-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+              </span>
+              <input class="input" type="email" id="email" name="email" placeholder="name@organisation.gov.ng"
+                     autocomplete="username" autocapitalize="none" spellcheck="false" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="password">Password</label>
+            <div class="input-group">
+              <span class="input-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </span>
+              <input class="input" type="password" id="password" name="password" placeholder="Enter your password"
+                     autocomplete="current-password" required style="padding-right:46px">
+              <button class="input-action" type="button" id="toggle-password" aria-label="Show password" tabindex="-1">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label class="checkbox">
+              <input type="checkbox" id="remember" name="remember">
+              Remember this device
+            </label>
+            <a class="forgot" href="#" id="forgot-link">Forgot password?</a>
+          </div>
+
+          <button class="btn btn-primary btn-block" type="submit" id="login-submit">Sign in</button>
+
+          <div class="auth-demo">
+            <strong>Demo accounts</strong> (any password, 6+ characters):<br>
+            <code>admin@lsds.gov.ng</code> &middot; <code>ld.officer@lsds.gov.ng</code><br>
+            <code>finance@lsds.gov.ng</code> &middot; <code>staff@lsds.gov.ng</code>
+          </div>
+        </form>
+
+        <p class="auth-panel-foot">Protected system. Unauthorised access is prohibited and monitored.</p>
+      </div>
+    </section>
+  </div>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    document.getElementById('forgot-link').addEventListener('click', function (e) {
+      e.preventDefault();
+      LSDS.ui.toast({ type: 'info', title: 'Password reset', message: 'Contact the System Administrator to reset your password.' });
+    });
+  </script>
+</body>
+</html>
